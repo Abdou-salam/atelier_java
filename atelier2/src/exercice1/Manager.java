@@ -2,15 +2,13 @@ package exercice1;
 
 import java.util.GregorianCalendar;
 
-public class Manager extends Personne{
+public class Manager extends Employe{
 	private double salaire;
 	private GregorianCalendar dateEmbauche;
 	private Secretaire secretaireManager;
 
 	private Manager(String nom,String prenom,GregorianCalendar dateNaissance,Adresse adresse,float salaire,GregorianCalendar dateEmbauche,Secretaire secretaireManager ) {
-		super(nom,prenom,dateNaissance,adresse);
-		this.salaire = salaire;
-		this.dateEmbauche = dateEmbauche;
+		super(nom,prenom,dateNaissance,adresse,salaire,dateEmbauche);
 		this .secretaireManager = secretaireManager;
 	}
 	
@@ -19,8 +17,14 @@ public class Manager extends Personne{
 	}
 	
 	public void augmenterLeSalaire (int pourcentage) {
-		GregorianCalendar dateAujourdHui = new GregorianCalendar();
+		
+		/*GregorianCalendar dateAujourdHui = new GregorianCalendar();
 		int anciennete = dateAujourdHui.get(dateAujourdHui.YEAR) -  dateEmbauche.get(dateEmbauche.YEAR);
+		if (pourcentage > 0) {
+			salaire = ( salaire * pourcentage / 100 + anciennete * 0.5/100);
+		}*/
+		
+		int anciennete = super.calculAnnuite();
 		if (pourcentage > 0) {
 			salaire = ( salaire * pourcentage / 100 + anciennete * 0.5/100);
 		}

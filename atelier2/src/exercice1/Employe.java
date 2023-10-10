@@ -6,7 +6,7 @@ public class Employe extends Personne{
 	private GregorianCalendar dateEmbauche;
 	
 	
-	private Employe(String nom,String prenom,GregorianCalendar dateNaissance,Adresse adresse,double salaire,GregorianCalendar dateEmbauche) {
+	protected Employe(String nom,String prenom,GregorianCalendar dateNaissance,Adresse adresse,double salaire,GregorianCalendar dateEmbauche) {
 		super(nom,prenom,dateNaissance,adresse);
 		this.salaire = salaire;
 		this.dateEmbauche = dateEmbauche;
@@ -38,9 +38,9 @@ public class Employe extends Personne{
 		}
 	}
 	
-	public int calculAnnuite(Employe e) {
+	public int calculAnnuite() {
 		GregorianCalendar dateAujourdHui = new GregorianCalendar();
-		return dateAujourdHui.get(dateAujourdHui.YEAR) -  e.getDateEmbauche().get(e.getDateEmbauche().YEAR);
+		return dateAujourdHui.get(dateAujourdHui.YEAR) -  this.getDateEmbauche().get(this.getDateEmbauche().YEAR);
 	}
 	
 	

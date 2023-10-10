@@ -12,7 +12,7 @@ public class Employe extends Personne{
 		this.dateEmbauche = dateEmbauche;
 	}
 	
-	private Employe (String nom,String prenom,int j,int m,int a,int numero,String rue,String code_postal,String ville,double salaire,GregorianCalendar dateEmbauche) {
+	protected Employe (String nom,String prenom,int j,int m,int a,int numero,String rue,String code_postal,String ville,double salaire,GregorianCalendar dateEmbauche) {
 		this(nom,prenom,new GregorianCalendar(a,m,j),new Adresse(numero,rue,code_postal,ville),salaire,dateEmbauche);
 	}
 	
@@ -34,7 +34,7 @@ public class Employe extends Personne{
 	
 	public void augmenterLeSalaire (int pourcentage) {
 		if (pourcentage > 0) {
-			salaire = salaire * pourcentage / 100;
+			this.salaire = this.salaire * pourcentage / 100;
 		}
 	}
 	
